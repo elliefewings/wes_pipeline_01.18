@@ -1,0 +1,24 @@
+R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library('rmarkdown', lib='/rds/project/erf33/rds-erf33-medgen/tools/r/R-3.3.2/lib64/R/library'); render('/rds/project/erf33/rds-erf33-medgen/scripts/wes_pipeline_01.18/p05A_wes_genotype_vqsr/r01_make_html.Rmd', params=list(dataset='mac_combined_Jan18-raw' , working_folder='/rds/project/erf33/rds-erf33-medgen/users/eleanor/Pipeline_working_directory/mac_combined_Jan18/mac_combined_Jan18/mac_combined_Jan18_vqsr/histograms/' , data_file='/rds/project/erf33/rds-erf33-medgen/users/eleanor/Pipeline_working_directory/mac_combined_Jan18/mac_combined_Jan18/mac_combined_Jan18_vqsr/histograms/mac_combined_Jan18_histograms_data.txt', snp_ts='97.0', indel_ts='95.0'), output_file='/rds/project/erf33/rds-erf33-medgen/users/eleanor/Pipeline_working_directory/mac_combined_Jan18/mac_combined_Jan18/mac_combined_Jan18_vqsr/histograms/mac_combined_Jan18_histograms_report.html')
+/usr/local/Cluster-Apps/pandoc/1.15.2.1/bin/pandoc: error while loading shared libraries: libgmp.so.3: cannot open shared object file: No such file or directory
+Error in system(paste(shQuote(pandoc_path), "--version"), intern = TRUE) : 
+  error in running command
+Calls: render ... get_pandoc_version -> with_pandoc_safe_environment -> force -> system
+Execution halted

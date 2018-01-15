@@ -1,0 +1,54 @@
+Job description file for combining gvcfs
+Ellie Fewings; 21Dec17
+
+TEMPLATE v1
+
+=========== Data location and analysis settings =============
+
+Data server: admin@mgqnap2.medschl.cam.ac.uk
+Project location: /share/user/path_to_results_folder
+
+project: project
+libraries: lib1
+set_id: set1
+
+======================= HPC settings ========================
+
+working_folder: /rds/project/erf33/rds-erf33-medgen/users
+
+Account to use on HPC: TISCHKOWITZ-SL2-CPU
+Max time to request (hrs.min.sec): 6.00.00
+
+==================== Pipeline summary =======================
+
+#Pipeline combines gvcfs to prepare them for joined variant calling. 
+#This step is recommended by GATK for convinience in processing of 
+#large numbers of samples (e.g. combine gvcfs for each 100 samples) 
+
+===================== Standard settings =====================
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/scripts/wes_pipeline_01.18/p04_wes_combine_gvcfs
+start_script: a00_start_pipeline.sh
+
+Tools
+-----
+
+tools_folder: /rds/project/erf33/rds-erf33-medgen/tools
+java: java/jre1.8.0_40/bin/java
+gatk: gatk/gatk-3.6-0/GenomeAnalysisTK.jar
+
+Resources
+---------
+
+resources_folder: /rds/project/erf33/rds-erf33-medgen/resources
+
+decompressed_bundle_folder: gatk_bundle/b37/decompressed
+ref_genome: human_g1k_v37.fasta
+
+targets_folder: illumina_nextera
+targets_intervals: nexterarapidcapture_exome_targetedregions_v1.2.b37.intervals
+
+Working sub-folders
+-------------------
+
+combined_gvcfs_folder: combined_gvcfs

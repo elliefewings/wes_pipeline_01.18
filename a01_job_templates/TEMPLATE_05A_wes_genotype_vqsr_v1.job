@@ -1,0 +1,90 @@
+Job description file for genotyping gvcfs and VQSR filtering
+Ellie Fewings; 21Dec17
+
+TEMPLATE v1
+
+=========== Data location and analysis settings =============
+
+Data server: admin@mgqnap2.medschl.cam.ac.uk
+Project location: /share/user/path_to_results_folder
+
+project: project
+input gvcf sets: set1
+output raw variantset: set1
+
+SNP_TS: 97.0
+INDEL_TS: 95.0
+
+Note: Mixed are treared as INDELS
+
+======================= HPC settings ========================
+
+working_folder: /rds/project/erf33/rds-erf33-medgen/users
+
+Account to use on HPC: TISCHKOWITZ-SL2-CPU
+Max time to request (hrs.min.sec): 03.00.00
+
+==================== Pipeline summary =======================
+
+#Joined variant calling and calculating stats 
+#to aid selection of thresholds for filtering
+
+===================== Standard settings =====================
+#Use template for script "p05_wes_genotype_vqsr" when running more than 10 samples
+
+scripts_folder: /rds/project/erf33/rds-erf33-medgen/scripts/wes_pipeline_01.18/p05A_wes_genotype_vqsr
+start_script: a00_start_pipeline.sh
+
+maxAltAlleles: 6
+stand_emit_conf: 30.0
+stand_call_conf: 30.0
+
+#InbreedingCoeff removed
+annotations_for_vqsr_model: QD MQ MQRankSum ReadPosRankSum FS SOR
+
+Tools
+-----
+
+tools_folder: /rds/project/erf33/rds-erf33-medgen/tools
+java: java/jre1.8.0_40/bin/java
+gatk: gatk/gatk-3.6-0/GenomeAnalysisTK.jar
+
+bcftools: bcftools/bcftools-1.2/bin/bcftools
+plot_vcfstats: bcftools/bcftools-1.2/bin/plot-vcfstats
+
+Updated version of Python matplotlib library for plot-vcfstats script
+python_bin: python/python_2.7.10/bin/
+
+This R-version should contain all libraries necessary for the pipeline
+r_bin_folder: r/R-3.3.2/bin/
+r_lib_folder: r/R-3.3.2/lib64/R/library
+
+Resources
+---------
+
+resources_folder: /rds/project/erf33/rds-erf33-medgen/resources
+
+decompressed_bundle_folder: gatk_bundle/b37/decompressed
+
+ref_genome: human_g1k_v37.fasta
+hapmap: hapmap_3.3.b37.vcf
+omni: 1000G_omni2.5.b37.vcf
+phase1_1k_hc: 1000G_phase1.snps.high_confidence.b37.vcf
+dbsnp_138: dbsnp_138.b37.vcf
+dbsnp_138_sites129: dbsnp_138.b37.excluding_sites_after_129.vcf
+mills: Mills_and_1000G_gold_standard.indels.b37.vcf
+
+targets_folder: illumina_nextera
+targets_intervals: nexterarapidcapture_exome_targetedregions_v1.2.b37.intervals
+
+targets_bed: nexterarapidcapture_exome_targetedregions_v1.2.b37.bed
+targets bed is not used yet in this version of the pipeline: 
+it could be used later to focus vcfstats on the targets
+
+Working sub-folders
+-------------------
+
+logs_folder: logs
+vqsr_folder: vqsr
+vcfstats_folder: vcfstats
+histograms_folder: histograms
